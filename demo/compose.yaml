@@ -1,0 +1,11 @@
+services:
+  kotlin-app:
+    image: kotlin-app:latest  # Use the name of the built image
+    container_name: kotlin_app  # Consistent container name for better management
+    ports:
+      - "8080:8080"  # Map container port 8080 to host port 8080
+    volumes:
+      - ./build/libs:/app  # Mount the build/libs directory to /app in the container
+    working_dir: /app  # Set the container's working directory to /app
+    command: ["java", "-jar", "demo-0.0.1-SNAPSHOT.jar"]  # Command to run the JAR file
+
