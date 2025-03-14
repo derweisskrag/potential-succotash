@@ -48,7 +48,7 @@ jobs:
       # Push the Docker image to Docker Hub (replace 'my-image-name' with your repo/image name)
       - name: Push Docker image to Docker Hub
         run: |
-          docker push kotlin-app:latest
+          docker push ${{ secrets.USERNAME }}/kotlin-app:latest
 
       # Install dependencies for Next.js app (inside the 'front-end' folder)
       - name: Install dependencies for Next.js
