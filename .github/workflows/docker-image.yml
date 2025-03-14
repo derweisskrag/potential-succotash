@@ -36,7 +36,7 @@ jobs:
       - name: Build Kotlin Docker image
         run: |
           cd demo
-          docker build . --file Dockerfile --tag kotlin-app:$(date +%s)
+          docker build . --file Dockerfile --tag kotlin-app:latest
 
       # Log into Docker Hub (using secrets to authenticate)
       - name: Log in to Docker Hub
@@ -48,7 +48,7 @@ jobs:
       # Push the Docker image to Docker Hub (replace 'my-image-name' with your repo/image name)
       - name: Push Docker image to Docker Hub
         run: |
-          docker push kotlin-app:$(date +%s)
+          docker push kotlin-app:latest
 
       # Install dependencies for Next.js app (inside the 'front-end' folder)
       - name: Install dependencies for Next.js
