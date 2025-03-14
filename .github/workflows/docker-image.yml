@@ -20,6 +20,9 @@ jobs:
           distribution: 'zulu'
           java-version: '23'
 
+      - name: Set JAVA_HOME
+        run: echo "JAVA_HOME=/opt/hostedtoolcache/Java_Zulu_jdk/23.0.2-7/x64" >> $GITHUB_ENV
+
       # Change permissions
       - name: Set Gradlew Permissions
         run: |
