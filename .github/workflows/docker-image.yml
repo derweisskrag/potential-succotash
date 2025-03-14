@@ -13,12 +13,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Build the Kotlin project
+      - name: Build Kotlin project
+        run: |
+          ./gradlew clean build
+
       # Build the Docker image for the Kotlin backend
       - name: Build Kotlin Docker image
         run: |
-          # Assuming the Dockerfile is inside the 'demo' directory, adjust accordingly
           docker build ./demo --file ./demo/Dockerfile --tag kotlin-app:$(date +%s)
-        
+
       # Log into Docker Hub (using secrets to authenticate)
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
@@ -30,7 +34,7 @@ jobs:
       - name: Push Docker image to Docker Hub
         run: |
           docker push kotlin-app:$(date +%s)
-          
+
       # Install dependencies for Next.js app (inside the 'front-end' folder)
       - name: Install dependencies for Next.js
         working-directory: ./front-end
