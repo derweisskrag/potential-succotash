@@ -16,10 +16,8 @@ jobs:
       # Change directory to demo and generate the Gradle wrapper if not present
       - name: Generate Gradle Wrapper
         run: |
-          cd demo &&
-          if [ ! -f ./gradlew ]; then
-            gradle wrapper
-          fi
+          cd demo
+          gradle wrapper
 
       # Change directory to demo and build the Kotlin project
       - name: Build Kotlin project
