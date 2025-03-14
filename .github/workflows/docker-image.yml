@@ -13,6 +13,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Set Gradlew Permissions
+        run: |
+          cd demo
+          chmod +x gradlew
+
       # Change directory to demo and build the Kotlin project
       - name: Build Kotlin project
         run: |
