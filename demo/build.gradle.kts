@@ -65,10 +65,6 @@ tasks.getByName<Jar>("jar") {
     enabled = false // Disable the plain JAR
 }
 
-tasks.getByName<org.springframework.boot.gradle.tasks.bundling.BootJar>("bootJar") {
-    enabled = true // Enable the executable JAR with the main manifest attribute
-}
-
 
 
 
