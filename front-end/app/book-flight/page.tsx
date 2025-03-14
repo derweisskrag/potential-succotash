@@ -13,7 +13,7 @@ export default function BookFlight() {
     to: "",
     departureDate: "",
     returnDate: "",
-    passengers: 1,
+    passengers: "",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,7 +32,6 @@ export default function BookFlight() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify(formData),
     });
@@ -100,7 +99,7 @@ export default function BookFlight() {
                 type="number"
                 name="passengers"
                 min="1"
-                value={formData.passengers}
+                value={formData.passengers.toString()}
                 onChange={handleChange}
               />
             </div>
