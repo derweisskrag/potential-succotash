@@ -32,18 +32,18 @@ jobs:
           cd demo
           ./gradlew clean build --stacktrace --info
 
-      # Change directory to demo and build the Docker image for the Kotlin backend
-      - name: Build Kotlin Docker image
-        run: |
-          cd demo
-          docker build . --file Dockerfile --tag kotlin-app:latest
-
       # Log into Docker Hub (using secrets to authenticate)
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
+
+      # create the image
+      - name: Build Kotlin Docker image
+        run: |
+          cd demo
+          docker build . --file Dockerfile --tag ${{ secrets.USERNAME }}/kotlin-app:latest
 
       # Push the Docker image to Docker Hub (replace 'my-image-name' with your repo/image name)
       - name: Push Docker image to Docker Hub
