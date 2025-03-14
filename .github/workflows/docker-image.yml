@@ -17,7 +17,7 @@ jobs:
       - name: Generate Gradle Wrapper
         run: |
           cd demo
-          gradle wrapper
+          
 
       # Change directory to demo and build the Kotlin project
       - name: Build Kotlin project
