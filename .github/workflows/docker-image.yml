@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Change permissions
+      # Change permissions d
       - name: Set Gradlew Permissions
         run: |
           cd demo
