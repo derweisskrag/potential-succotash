@@ -13,22 +13,25 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Generate the Gradle wrapper if not present
+      # Change directory to demo and generate the Gradle wrapper if not present
       - name: Generate Gradle Wrapper
         run: |
+          cd demo
           if [ ! -f ./gradlew ]; then
             gradle wrapper
           fi
 
-      # Build the Kotlin project
+      # Change directory to demo and build the Kotlin project
       - name: Build Kotlin project
         run: |
+          cd demo
           ./gradlew clean build --stacktrace --info
 
-      # Build the Docker image for the Kotlin backend
+      # Change directory to demo and build the Docker image for the Kotlin backend
       - name: Build Kotlin Docker image
         run: |
-          docker build ./demo --file ./demo/Dockerfile --tag kotlin-app:$(date +%s)
+          cd demo
+          docker build . --file Dockerfile --tag kotlin-app:$(date +%s)
 
       # Log into Docker Hub (using secrets to authenticate)
       - name: Log in to Docker Hub
