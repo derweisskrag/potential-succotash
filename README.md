@@ -36,6 +36,20 @@ I apologize for not making the full commercial app. Last year, I applied for you
 
 This year, I deliver you Kotlin+Docker+NextJS (15.2 Modern TS) to you. It worked. It pushed to DockerHub. GitHub actions worked! I leanred CI/CD. I am a engineer now! I will apply next year too.
 
+## Alternative
+
+As the thing is 3 days ago deployed to DockerHub you can do
+
+```
+docker pull kuuking/kotlin-app:latest
+```
+
+```
+docker run -p 8080:8080 kuuking/kotlin-app:latest
+```
+
+So, you are not even supposed to git clone, but the issue is Vercel that uses NextJS app, may not fetch data via API. It is because Docker is localhost, but must be `https:server.com/flights`. But if you run NextJS locally, it will fetch as long as Kotlin is running on 8080, as shown above.
+
 ## Project Setup
 
 ### Prerequisites
