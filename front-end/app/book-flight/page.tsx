@@ -6,6 +6,7 @@ import { Button } from "@heroui/button";
 import { Card, CardBody, CardHeader} from "@heroui/card";
 import { FaPlaneDeparture, FaPlaneArrival, FaCalendarAlt, FaUser } from "react-icons/fa";
 import { useState } from "react";
+import {baseURL} from "@/server/get_url";
 
 export default function BookFlight() {
   const [formData, setFormData] = useState({
@@ -28,7 +29,7 @@ export default function BookFlight() {
     e.preventDefault();
     
     // Send data to the Kotlin backend
-    const response = await fetch("http://localhost:8080/flights/book-flight", {
+    const response = await fetch(`${baseURL}/flights/book-flight`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
