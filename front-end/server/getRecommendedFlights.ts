@@ -1,7 +1,9 @@
 'use server';
 
+import {baseURL} from "@/server/get_url";
+
 export async function getRecommendedFlightsData() {
-    const response = await fetch('http://localhost:8080/flights/recommendedFlights', {'cache':'no-store'}); // Fetch flights data from the server
+    const response = await fetch(`${baseURL}/flights/recommendedFlights`, {'cache':'no-store'}); // Fetch flights data from the server
     if (!response.ok) {
         throw new Error("Failed to fetch flights data");
     }
