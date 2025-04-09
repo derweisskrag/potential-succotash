@@ -1,4 +1,4 @@
-# potential-succotash
+# potential-succotash -> Hi
 CGI Internship Test Assignment
 
 This repository contains the code for the flight recommendation app built with Kotlin for the backend and Next.js for the frontend. The project also includes Docker for containerization, making it easier to deploy and test locally.
